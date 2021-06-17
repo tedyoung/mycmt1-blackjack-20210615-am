@@ -68,11 +68,11 @@ public class Game {
 
         displayFinalGameState();
 
-        determineOutcome(playerBusted);
+        determineOutcome();
     }
 
-    private void determineOutcome(boolean playerBusted) {
-        if (playerBusted) {
+    private void determineOutcome() {
+        if (isBusted(playerHand)) {
             System.out.println("You Busted, so you lose.  💸");
         } else if (isBusted(dealerHand)) {
             System.out.println("Dealer went BUST, Player wins! Yay for you!! 💵");
