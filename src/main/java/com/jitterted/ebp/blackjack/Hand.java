@@ -58,11 +58,11 @@ public class Hand {
         return value() <= 16;
     }
 
-    boolean pushes(Hand playerHand) {
-        return value() == playerHand.value();
+    boolean pushes(Hand otherHand) {
+        return value() == otherHand.value();
     }
 
-    boolean beats(Hand dealerHand) {
-        return dealerHand.value() < value();
+    boolean beats(Hand otherHand) {
+        return otherHand.value() < value();
     }
 }
