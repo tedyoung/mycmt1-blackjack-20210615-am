@@ -28,7 +28,7 @@ public class Hand {
                 .anyMatch(card -> card.rankValue() == 1);
 
         // if the total hand value <= 11, then count the Ace as 11 by adding 10
-        if (hasAce && handValue < 11) {
+        if (hasAce && handValue <= 11) {
             handValue += 10;
         }
 
@@ -59,10 +59,17 @@ public class Hand {
     }
 
     boolean pushes(Hand otherHand) {
+        // requires this and other hand to NOT be busted
         return value() == otherHand.value();
     }
 
     boolean beats(Hand otherHand) {
+        // requires this and other hand to NOT be busted
         return otherHand.value() < value();
+    }
+
+    // this is possibly useful, though has a cost
+    boolean valueEquals(int target) {
+        return value() == target;
     }
 }
